@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Serenidad & Autoestima | Espacio de Apoyo</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="icon" href="heart blue-png.png">
+    <style>
+        :root {
+            --celeste: #e0f2fe;
+            --morado-light: #f5f3ff;
+            --morado-main: #7c3aed;
+            --morado-dark: #5b21b6;
+            --celeste-accent: #0ea5e9;
+        }
+
+        body {
+            background: linear-gradient(135deg, var(--celeste) 0%, var(--morado-light) 100%);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #1e293b;
+            min-height: 100vh;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        .glass-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .gradient-text {
+            background: linear-gradient(to right, var(--celeste-accent), var(--morado-main));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .btn-primary {
+            background: linear-gradient(to right, var(--celeste-accent), var(--morado-main));
+            color: white;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(124, 58, 237, 0.3);
+        }
+
+        .btn-primary:hover {
+            opacity: 0.9;
+            transform: scale(1.05);
+        }
+
+        .affirmation-box {
+            min-height: 150px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            font-style: italic;
+        }
+
+        /* Animaciones */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .animate-fade {
+            animation: fadeIn 0.8s ease forwards;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navegación -->
+    <nav class="p-6">
+        <div class="max-w-6xl mx-auto flex justify-between items-center">
+            <h1 class="text-2xl font-bold gradient-text">Serenidad</h1>
+            <div class="space-x-6 hidden md:block">
+                <a href="#inicio" class="hover:text-purple-600 transition">Inicio</a>
+                <a href="#afirmaciones" class="hover:text-purple-600 transition">Afirmaciones</a>
+                <a href="#consejos" class="hover:text-purple-600 transition">Consejos</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header id="inicio" class="max-w-6xl mx-auto px-6 py-12 md:py-24 flex flex-col md:flex-row items-center gap-12">
+        <div class="md:w-1/2 animate-fade">
+            <span class="px-4 py-1 bg-purple-100 text-purple-700 rounded-full text-sm font-semibold">Tu viaje comienza aquí</span>
+            <h2 class="text-4xl md:text-6xl font-extrabold mt-4 leading-tight">
+                Eres más <span class="gradient-text">fuerte</span> de lo que crees.
+            </h2>
+            <p class="text-lg mt-6 text-gray-600">
+                Bienvenido a un espacio seguro diseñado para recordarte tu valor intrínseco. No estás solo en esto; estamos aquí para acompañarte a sanar tu relación contigo mismo.
+            </p>
+            <div class="mt-8">
+                <button onclick="document.getElementById('afirmaciones').scrollIntoView({behavior: 'smooth'})" class="btn-primary px-8 py-3 rounded-full font-bold">
+                    Empezar ahora
+                </button>
+            </div>
+        </div>
+        <div class="md:w-1/2 animate-fade" style="animation-delay: 0.2s;">
+            <div class="relative">
+                <div class="absolute -top-4 -left-4 w-64 h-64 bg-purple-300 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-pulse"></div>
+                <div class="absolute -bottom-4 -right-4 w-64 h-64 bg-blue-300 rounded-full mix-blend-multiply filter blur-3xl opacity-30"></div>
+                <img src="https://images.unsplash.com/photo-1515023115689-589c33041d3c?auto=format&fit=crop&q=80&w=800" alt="Bienestar" class="rounded-2xl shadow-2xl relative z-10">
+            </div>
+        </div>
+    </header>
+
+    <!-- Sección de Afirmaciones -->
+    <section id="afirmaciones" class="py-20 bg-white bg-opacity-40">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <h3 class="text-3xl font-bold mb-10">Mensajes para tu Alma</h3>
+            <div class="glass-card p-10 shadow-xl">
+                <div id="affirmation-container" class="affirmation-box text-2xl md:text-3xl text-purple-800 font-medium italic">
+                    "Merezco amor, respeto y bondad, empezando por mí mismo."
+                </div>
+                <button onclick="generateAffirmation()" class="mt-8 text-sm font-semibold text-purple-600 hover:text-purple-800 flex items-center justify-center mx-auto gap-2">
+                    <i class="fas fa-redo"></i> Siguiente mensaje
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Consejos / Recursos -->
+    <section id="consejos" class="py-20 max-w-6xl mx-auto px-6">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <!-- Card 1 -->
+            <div class="glass-card p-8 shadow-sm">
+                <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center text-blue-600 mb-6">
+                    <i class="fas fa-leaf text-xl"></i>
+                </div>
+                <h4 class="text-xl font-bold mb-3">Autocompasión</h4>
+                <p class="text-gray-600">Trátate como tratarías a tu mejor amigo. Sé amable con tus errores y celebra tus pequeños avances.</p>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="glass-card p-8 shadow-sm">
+                <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center text-purple-600 mb-6">
+                    <i class="fas fa-boundary text-xl"></i>
+                </div>
+                <h4 class="text-xl font-bold mb-3">Establece Límites</h4>
+                <p class="text-gray-600">Decir "no" es un acto de amor propio. No tienes que complacer a todo el mundo a costa de tu paz.</p>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="glass-card p-8 shadow-sm">
+                <div class="w-12 h-12 bg-indigo-100 rounded-lg flex items-center justify-center text-indigo-600 mb-6">
+                    <i class="fas fa-brain text-xl"></i>
+                </div>
+                <h4 class="text-xl font-bold mb-3">Mindfulness</h4>
+                <p class="text-gray-600">Conéctate con el presente. Respira profundo cuando sientas que tus pensamientos negativos te abruman.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pie de página -->
+    <footer class="bg-purple-900 text-white py-12">
+        <div class="max-w-6xl mx-auto px-6 text-center">
+            <h4 class="text-2xl font-bold mb-4">¿Necesitas hablar con alguien?</h4>
+            <p class="mb-8 text-purple-200">Si sientes que necesitas ayuda profesional, no dudes en contactar a un especialista.</p>
+            <div class="flex justify-center gap-6 mb-8">
+                <a href="#" class="hover:text-blue-300 transition"><i class="fab fa-instagram text-2xl"></i></a>
+                <a href="#" class="hover:text-blue-300 transition"><i class="fab fa-twitter text-2xl"></i></a>
+                <a href="#" class="hover:text-blue-300 transition"><i class="fas fa-envelope text-2xl"></i></a>
+            </div>
+            <p class="text-xs text-purple-400">Hecho con ❤️ para tu bienestar. Serenidad &copy; 2024</p>
+        </div>
+    </footer>
+
+    <script>
+        const affirmations = [
+            "Merezco amor, respeto y bondad, empezando por mí mismo.",
+            "Mi valor no depende de la opinión de los demás.",
+            "Soy suficiente tal y como soy hoy.",
+            "He sobrevivido a mis días más difíciles y eso me hace valiente.",
+            "Está bien descansar. No tengo que ser productivo para ser valioso.",
+            "Mis errores son oportunidades de aprendizaje, no definiciones de mi ser.",
+            "Soy el arquitecto de mi propia felicidad.",
+            "Hoy elijo soltar lo que no puedo controlar.",
+            "Mi paz mental es mi prioridad número uno.",
+            "Tengo el poder de cambiar mi diálogo interno a uno más amoroso.",
+            "A veces llorar puede ser liverador y esta bien hacerlo.",
+            "Cada día es una nueva oportunidad para amarme más.",
+            "Me permito ser imperfecto y aprender de mis experiencias.",
+            "Soy digno de todas las cosas buenas que la vida tiene para ofrecerme.",
+            "Mi bienestar emocional es tan importante como mi bienestar físico.",
+            "Elijo rodearme de personas que me apoyan y me elevan.",
+            "Expresarse esta bien; mis sentimientos son válidos.",
+            "Me libero de la necesidad de ser perfecto.",
+            "Cada paso que doy hacia el amor propio es un acto de valentía.",
+            "Soy un trabajo en progreso y eso está bien.",
+            "Siempre habran días buenos y malos, y ambos son parte de mi viaje.",
+            "El ejercicio y el cuidado personal son formas de honrar mi cuerpo y mente.",
+            "Mi voz merece ser escuchada y respetada.",
+            "Me permito tiempo para sanar y crecer a mi propio ritmo.",
+            "Convivir con mis pensamientos negativos no me define; soy más que ellos.",
+            "Convivir con mis seres queridos me nutre el alma y me fortalece.",
+            "Aizlarme de situaciones tóxicas es un acto de amor propio.",
+            "Decir no cuando es necesario es un acto de autocuidado.",
+
+        ];
+
+        function generateAffirmation() {
+            const container = document.getElementById('affirmation-container');
+            
+            // Efecto de desvanecimiento
+            container.style.opacity = 0;
+            
+            setTimeout(() => {
+                const randomIndex = Math.floor(Math.random() * affirmations.length);
+                container.innerText = `"${affirmations[randomIndex]}"`;
+                container.style.opacity = 1;
+                container.style.transition = "opacity 0.5s ease";
+            }, 300);
+        }
+    </script>
+</body>
+</html>
